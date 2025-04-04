@@ -22,7 +22,7 @@ namespace POCsftp
                 // Prompt for password and private key passphrase
                 Console.Write("Enter your UserName: ");
                 string userName = Console.ReadLine();
-                if (userName == "hulk-test")
+                if (userName?.Trim().ToLower()  == "hulk-test")
                 {
                     hostName = "sftp3.hsabank.com";
                     portNumber = 27;
