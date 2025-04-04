@@ -60,8 +60,6 @@ namespace POCsftp
                     UserName = userName?.Trim().ToUpper() ?? "",
                     PortNumber = portNumber,
                     SshHostKeyFingerprint = sshHostKeyFingerprint?.Trim() ?? "",
-                    //"ssh-rsa 4096 4f:d1:7f:7f:d9:31:22:be:ea:f0:b8:d1:8c:f8:a5:10"
-                    //"ssh-rsa 2048 3a:1b:84:fd:24:9e:f1:12:51:32:7b:4e:5a:77:3c:5a"
                 };
 
                 if (!string.IsNullOrEmpty(privateKeyPassphrase))
