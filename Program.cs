@@ -14,6 +14,7 @@ namespace POCsftp
             string sshHostKeyFingerprint;
             string privateKeyPassphrase;
             string sshPrivateKeyPath;
+            string password = "";
             try
             {
                 Console.WriteLine("sftp POC app started....");
@@ -29,6 +30,9 @@ namespace POCsftp
                 }
                 else
                 {
+
+                    Console.Write("Enter your Password [not required]: ");
+                    password = Console.ReadLine();
                     Console.Write("Enter your HostName [sftp only]: ");
                     hostName = Console.ReadLine();
                     Console.Write("Enter your PortNumber: ");
@@ -38,7 +42,7 @@ namespace POCsftp
                     sshHostKeyFingerprint = Console.ReadLine();
                     Console.Write("Enter your private key passphrase [not required]: ");
                     privateKeyPassphrase = Console.ReadLine();
-                    Console.Write("Enter your SshPrivateKeyPath [not required]: ");
+                    Console.Write("Enter your SshPrivateKeyPath [not required *.ppk]: ");
                     sshPrivateKeyPath = Console.ReadLine();
 
                 if (string.IsNullOrEmpty(hostName) || string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(sshHostKeyFingerprint))
@@ -58,6 +62,7 @@ namespace POCsftp
                     FtpMode = FtpMode.Passive,
                     HostName = hostName?.Trim() ?? "",
                     UserName = userName?.Trim().ToUpper() ?? "",
+                    Password = password?.Trim() ?? "",  
                     PortNumber = portNumber,
                     SshHostKeyFingerprint = sshHostKeyFingerprint?.Trim() ?? "",
                 };
